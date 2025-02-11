@@ -44,3 +44,21 @@ def fruta_view(request, index):
     return render(request, 'pages/fruta.html', {
         'fruta' : fruta
     })
+    
+#Vista para la lista de usuarios
+
+users = []
+
+def user_view(request):
+    mensaje = None
+    if request.method == 'POST':
+        user = request.POST.get('user')
+        if user in users:
+            mensaje = 'El usuario ya existe'
+        else:
+            users.append(user)
+    
+    return render(request, 'pages/users.html', {
+        'users' : users,
+        'error' : mensaje
+    })

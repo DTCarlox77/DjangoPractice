@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Agregar Usuarios{% endblock title %}
+
+{% block body %}
+
+{% if error %}
+<div class="alert alert-danger">
+  <h1>Error</h1>
+  <p>{{ error }}</p>
+</div>
+{% endif %}
+
+<hr>
+</h1>Formulario para agregar Usuarios</h1>
+<form action="{% url 'users' %}" method="POST">
+    {% csrf_token %}
+    <input class="form-control" type="text" placeholder="Nombre de usuario" name="user" required>
+    <button class="btn btn-outline-success mt-4" type="submit">Agregar Usuario</button>
+  </form>
+  
+  <hr>
+  <h2>Listado de Usuarios</h2>
+  <hr>
+  
+  <ul>
+    {% for user in users %}
+      <li>{{ user }}</li>
+    {% endfor %}
+  </ul>
+  
+  {% endblock body %}
