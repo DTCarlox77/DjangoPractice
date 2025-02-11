@@ -1,0 +1,49 @@
+{% extends 'layouts/base.html' %}
+
+<!-- Esto permite la carga de todos los archivos dentro de static -->
+<!-- Reiniciar el servidor antes de cargar un nuevo archivo estático -->
+{% load static %}
+
+{% block title %}Mi Aplicación{% endblock title %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock styles %}
+
+{% block body %}
+
+<div class="container">
+  <img class="image" src="{% static 'image.png' %}" alt="">
+</div>
+
+<h1 class="titulo">Aplicación de Frutas</h1>
+<ul>
+  <li>Elemento 1</li>
+  <li>Elemento 2</li>
+  <li>Elemento 3</li>
+</ul>
+<h1>Hola Luisa</h1>
+<hr>
+<h2>Esta es mi variable del Backend: {{ variable }}</h2>
+<hr>
+
+<br>
+<p>Acá vamos a renderizar con un for()</p>
+<h2>Esta es la otra variable: {{ objetos }}</h2>
+<hr>
+<ul>
+  {% for objeto in objetos %}
+    <li>{{ objeto }}</li>
+  {% endfor %}
+</ul>
+
+<h1>Condición del nombre</h1>
+<hr>
+{% if nombre == 'Luisa' %}
+  <h1>Bienvenida, Luisa</h1>
+
+{% else %}
+  <h1>El nombre no es Luisa</h1>
+{% endif %}
+
+{% endblock body %}

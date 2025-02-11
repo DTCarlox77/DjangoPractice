@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Mis Frutas{% endblock title %}
+
+{% block body %}
+<h1>Sección de Frutas</h1>
+<hr>
+<button class="btn btn-outline-success">Crear Fruta</button>
+<hr>
+
+{% if error %}
+<div class="alert alert-danger">
+  <h1>Error</h1>
+  <p>{{ error }}</p>
+</div>
+{% endif %}
+
+<hr>
+<h1>Formulario para agregar una fruta</h1>
+<form action="{% url 'frutas' %}" method="POST">
+  {% csrf_token %}
+  <!-- Siempre le debe debe colocar el token para que django pueda cifrar los datos -->
+  <input class="form-control" type="text" placeholder="Nombre de la fruta" name="fruta">
+  <button class="btn btn-outline-success mt-4" type="submit">Enviar Fruta</button>
+
+</form>
+
+<hr>
+<h1>Listado de frutas</h1>
+<hr>
+
+<ul>
+  {% for fruta in frutas %}
+  <li>
+    <a href="{% url 'fruta' index=forloop.counter0 %}">
+      {{ fruta }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock body %}
