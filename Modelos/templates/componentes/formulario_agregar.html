@@ -1,0 +1,9 @@
+<form action="{% url 'agregar_fruta' %}" method="POST">
+  {% csrf_token %}
+  <input type="text" name="nombre" placeholder="Nombre de la fruta" class="form-control">
+  <input type="number" name="precio" min="0" placeholder="Precio de la fruta" class="form-control mt-2">
+
+  <div class="d-flex">
+    <button type="submit" class="btn btn-outline-primary mt-2" style="width: 100%;">Agregar</button>
+  </div>
+</form>

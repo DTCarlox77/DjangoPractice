@@ -1,0 +1,19 @@
+<form action="{% url 'buscar' %}" method="get">
+  <input type="text" name="nombre" placeholder="Nombre de la fruta a buscar" class="form-control">
+
+  <div class="d-flex">
+    <button type="submit" class="btn btn-outline-primary mt-2" style="width: 100%;">Buscar</button>
+  </div>
+
+  {% if busqueda %}
+  <div class="d-flex">
+    <a href="{% url 'main' %}" style="width: 100%;">
+      <button type="button" class="btn btn-outline-danger mt-2" style="width: 100%;">Regresar</button>
+    </a>
+  </div>
+  {% endif %}
+
+  
+
+  
+</form>

@@ -1,0 +1,35 @@
+{% extends 'layouts/index.html' %}
+
+{% block title %}Frutas{% endblock title %}
+
+{% block body %}
+<div class="row">
+  <div class="col-6">
+    <h1 class="m-4">Mis Frutas</h1>
+    <hr>
+    {% for fruta in frutas %}
+    <div class="container m-4">
+      <a href="{% url 'visitar_fruta' id=fruta.id %}">
+        <h2>{{ fruta.nombre }}</h2>
+      </a>
+      <h4>Precio: {{ fruta.precio }} NIO</h4>
+    </div>
+    <hr>
+    {% endfor %}
+  </div>
+  <div class="col-6">
+    <h1 class="m-4">Agregar Frutas</h1>
+    <hr>
+    <div class="m-4">
+      <!-- Acá va el formulario de agregar -->
+      {% include 'componentes/formulario_agregar.html' %}
+    </div>
+    <hr>
+    <h1 class="m-4">Buscar Frutas</h1>
+    <hr>
+    <div class="m-4">
+      {% include 'componentes/formulario_busqueda.html' %}
+    </div>
+  </div>
+</div>
+{% endblock body %}

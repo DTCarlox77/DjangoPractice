@@ -17,3 +17,12 @@ Activación: `Ctrl + Shift + ñ o ;`
 `django-admin startproject [NOMBRE DEL PROYECTO] .`
 - Inicializar una aplicación:
 `django-admin startapp [NOMBRE DE LA APP]`
+
+
+## Bases de datos:
+
+- Generación de migraciones para un proyecto:
+`python manage.py makemigrations`
+
+- Envío de las migraciones a la base de datos:
+`python manage.py migrate`
