@@ -1,0 +1,34 @@
+{% comment %}
+<!-- PUT se utiliza para actualizar un elemento -->
+PUT:
+user = {
+  id : 1,
+  username : 'Usuario A',
+  ciudad : 'Managua'
+}
+
+user (Actualizar) : {
+  // TODO ESTO VA A CAMBIAR
+}
+
+PATCH:
+
+user = {
+  id : 1,
+  username : 'Usuario A',
+  ciudad : 'Managua'
+}
+
+user = {
+  username : 'New Username'
+}
+{% endcomment %}
+
+<form action="{% url 'editar' id=fruta.id %}" method="GET">
+  <input value="{{ fruta.nombre }}" type="text" name="nombre" placeholder="Nombre de la fruta" class="form-control">
+  <input value="{{ fruta.precio|stringformat:'.2f' }}" type="number" step="00,00" name="precio" placeholder="Precio de la fruta" class="form-control mt-2">
+
+  <div class="d-flex">
+    <button type="submit" class="btn btn-outline-primary mt-2" style="width: 100%;">Guardar Cambios</button>
+  </div>
+</form>

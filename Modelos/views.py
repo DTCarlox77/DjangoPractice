@@ -9,6 +9,28 @@ def main(requets):
         'frutas' : frutas
     })
     
+def editar_fruta(request, id):
+    
+    fruta = get_object_or_404(Fruta, id=id)
+    print('Primer paso')
+    
+    if request.method == 'GET':
+        print('Segundo paso')
+        nombre = request.GET.get('nombre')
+        precio = request.GET.get('precio')
+        print(nombre, precio)
+        
+        try:
+            fruta.nombre = nombre
+            fruta.precio = precio
+            fruta.save()
+            print('Se almacenó')
+        
+        except Exception as e:
+            print(f'Ocurrió un error: {e}')
+            
+    return redirect('visitar_fruta', id=id)
+    
 def visitar_fruta(request, id):
     
     fruta = get_object_or_404(Fruta, id=id)
